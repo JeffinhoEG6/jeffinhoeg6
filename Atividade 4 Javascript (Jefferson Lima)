@@ -1,0 +1,45 @@
+// Função tradicional sem parâmetros
+function mostrarSaudacao() {
+    alert("Bem-vindo à calculadora JavaScript!");
+}
+
+// Função tradicional com parâmetros e retorno de valor
+function calcular(operacao, num1, num2) {
+    switch (operacao) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            if (num2 !== 0) {
+                return num1 / num2;
+            } else {
+                return "Não é possível dividir por zero";
+            }
+        default:
+            return "Operação inválida";
+    }
+}
+
+// Solicitar ao usuário os valores e a operação desejada
+function executarCalculadora() {
+    const operacao = prompt("Digite a operação desejada (+, -, *, /):");
+    const num1 = parseFloat(prompt("Digite o primeiro número:"));
+    const num2 = parseFloat(prompt("Digite o segundo número:"));
+
+    let resultado;
+
+    if (isNaN(num1) || isNaN(num2)) {
+        resultado = "Por favor, insira números válidos.";
+    } else {
+        resultado = calcular(operacao, num1, num2);
+    }
+
+    alert("Resultado: " + resultado);
+}
+
+// Exemplo de uso
+mostrarSaudacao();
+executarCalculadora();
