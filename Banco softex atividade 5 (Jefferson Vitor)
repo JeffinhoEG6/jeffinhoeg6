@@ -1,0 +1,41 @@
+class Banco {
+    constructor(conta, saldo, tipoConta, agencia) {
+        this.conta = conta;
+        this.saldo = saldo;
+        this.tipoConta = tipoConta;
+        this.agencia = agencia;
+    }
+
+    consultarSaldo() {
+        return this.saldo;
+    }
+
+    depositar(valor) {
+        if (valor > 0) {
+            this.saldo += valor;
+            console.log(`Depósito de R$${valor} realizado. Novo saldo: R$${this.saldo}`);
+        } else {
+            console.log("Valor inválido para depósito.");
+        }
+    }
+
+    sacar(valor) {
+        if (valor > 0 && valor <= this.saldo) {
+            this.saldo -= valor;
+            console.log(`Saque de R$${valor} realizado. Novo saldo: R$${this.saldo}`);
+        } else {
+            console.log("Valor inválido para saque ou saldo insuficiente.");
+        }
+    }
+
+    obterNumeroConta() {
+        return this.conta;
+    }
+}
+
+const minhaConta = new Banco("123456", 1000, "Corrente", "7890");
+
+console.log("Saldo atual:", minhaConta.consultarSaldo());
+minhaConta.depositar(500);
+minhaConta.sacar(200);
+console.log("Número da conta:", minhaConta.obterNumeroConta());
