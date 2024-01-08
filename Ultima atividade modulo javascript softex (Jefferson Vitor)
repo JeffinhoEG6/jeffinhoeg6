@@ -1,0 +1,20 @@
+try {
+    let numero1 = parseFloat(prompt("Me diga o primeiro número:"));
+    let numero2 = parseFloat(prompt("Me diga o segundo número:"));
+
+    if (isNaN(numero1) || isNaN(numero2)) {
+        throw new Error("ERRO! Por favor, insira números válidos.");
+    }
+
+    let resultado = numero1 / numero2;
+
+    if (!isFinite(resultado)) {
+        throw new Error("A operação resultou em um valor indefinido.");
+    }
+
+    alert("O resultado da operação é: " + resultado);
+} catch (error) {
+    alert("Oops! Algo deu errado:\n" + error.message);
+} finally {
+    console.log("Bloco finally executado.");
+}
